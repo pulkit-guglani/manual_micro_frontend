@@ -7,7 +7,11 @@ export default function Home() {
     <div>
       <div>hello</div>
       <div style={{ marginTop: 12 }}>
-        <Button onClick={() => alert("Clicked!")}>Click me</Button>
+        <Button
+          label="Click me"
+          variant="destructive-fill"
+          onClick={() => alert("Clicked!")}
+        />
       </div>
     </div>
   );

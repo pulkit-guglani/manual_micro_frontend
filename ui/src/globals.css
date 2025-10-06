@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "../../ui/src/**/*.{ts,tsx,js,jsx}";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -191,6 +191,10 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  /* --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px); */
 }
 
 .dark {
@@ -198,6 +202,8 @@
   --color-background: #010820;
   --color-foreground: #ffffff;
 
+  /* You can override specific colors for dark mode here if needed */
+  /* For now, keeping the same color values */
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -293,6 +299,7 @@
 
 /* Grid background utility */
 .grid-bg {
+  /* Two layers of repeating gradients to create a dotted grid */
   background-color: #000;
   background-image: radial-gradient(
       circle,
@@ -321,15 +328,19 @@
 .bg-decorative-1 {
   background: var(--bg-image-decorative-1);
 }
+
 .bg-decorative-2 {
   background: var(--bg-image-decorative-2);
 }
+
 .bg-decorative-3 {
   background: var(--bg-image-decorative-3);
 }
+
 .bg-decorative-4 {
   background: var(--bg-image-decorative-4);
 }
+
 .bg-decorative-5 {
   background: var(--bg-image-decorative-5);
 }
@@ -348,16 +359,19 @@
     font-weight: var(--text-regular);
     line-height: var(--line-height-default);
   }
+
   .text-caption-medium {
     font-size: var(--text-caption);
     font-weight: var(--text-medium);
     line-height: var(--line-height-default);
   }
+
   .text-caption-semibold {
     font-size: var(--text-caption);
     font-weight: var(--text-semibold);
     line-height: var(--line-height-default);
   }
+
   .text-caption-bold {
     font-size: var(--text-caption);
     font-weight: var(--text-bold);
@@ -369,16 +383,19 @@
     font-weight: var(--text-regular);
     line-height: var(--line-height-default);
   }
+
   .text-label-medium {
     font-size: var(--text-label);
     font-weight: var(--text-medium);
     line-height: var(--line-height-default);
   }
+
   .text-label-semibold {
     font-size: var(--text-label);
     font-weight: var(--text-semibold);
     line-height: var(--line-height-default);
   }
+
   .text-label-bold {
     font-size: var(--text-label);
     font-weight: var(--text-bold);
@@ -389,14 +406,17 @@
     font-size: var(--text-body);
     font-weight: var(--text-regular);
   }
+
   .text-body-medium {
     font-size: var(--text-body);
     font-weight: var(--text-medium);
   }
+
   .text-body-semibold {
     font-size: var(--text-body);
     font-weight: var(--text-semibold);
   }
+
   .text-body-bold {
     font-size: var(--text-body);
     font-weight: var(--text-bold);
@@ -408,42 +428,49 @@
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h4-semibold {
     font-size: var(--text-h4);
     font-weight: var(--text-semibold);
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h3-bold {
     font-size: var(--text-h3);
     font-weight: var(--text-bold);
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h3-semibold {
     font-size: var(--text-h3);
     font-weight: var(--text-semibold);
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h2-bold {
     font-size: var(--text-h2);
     font-weight: var(--text-bold);
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h2-semibold {
     font-size: var(--text-h2);
     font-weight: var(--text-semibold);
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h1-bold {
     font-size: var(--text-h1);
     font-weight: var(--text-bold);
     line-height: var(--line-height-heading);
     letter-spacing: -0.02em;
   }
+
   .text-h1-semibold {
     font-size: var(--text-h1);
     font-weight: var(--text-semibold);
@@ -455,10 +482,12 @@
     font-size: var(--text-button-s-semibold);
     font-weight: var(--text-semibold);
   }
+
   .text-button-m-semibold {
     font-size: var(--text-button-m-semibold);
     font-weight: var(--text-semibold);
   }
+
   .text-button-l-semibold {
     font-size: var(--text-button-l-semibold);
     font-weight: var(--text-semibold);
@@ -475,7 +504,7 @@
   }
 }
 
-::root {
+:root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -514,14 +543,18 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @layer utilities {
+  /* Global style for the text showing the currently selected option in Radix Select */
   [data-slot="select-value"] {
+    /* Global style for the text that shows the currently selected option in Radix Selects */
     @apply text-grayscale-900 text-label;
+    /* adjust as desired */
   }
 
   @keyframes fade-slide-out {
@@ -529,26 +562,31 @@
       opacity: 1;
       transform: translateX(0);
     }
+
     to {
       opacity: 0;
       transform: translateX(20px);
     }
   }
 
+  /* Keyframe for the new text sliding and fading IN */
   @keyframes fade-slide-in {
     from {
       opacity: 0;
       transform: translateX(-20px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
     }
   }
 
+  /* These classes will trigger the keyframe animations */
   .placeholder-animate.is-fading-out::placeholder {
     animation: fade-slide-out 0.4s forwards;
   }
+
   .placeholder-animate.is-fading-in::placeholder {
     animation: fade-slide-in 0.4s forwards;
   }
@@ -563,6 +601,7 @@
     opacity: 0;
     transform: translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -570,6 +609,7 @@
 }
 
 /* dev classes */
+
 .d {
   border: 1px solid red !important;
 }
