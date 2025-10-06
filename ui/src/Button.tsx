@@ -9,14 +9,12 @@ export function Button({ children, onClick, disabled }: ButtonProps) {
     <button
       onClick={onClick}
       disabled={disabled}
-      style={{
-        padding: "8px 14px",
-        borderRadius: 8,
-        border: "1px solid #e5e7eb",
-        background: disabled ? "#e5e7eb" : "#111827",
-        color: disabled ? "#6b7280" : "white",
-        cursor: disabled ? "not-allowed" : "pointer",
-      }}
+      className={
+        `px-3 py-2 rounded-lg bg-amber-300 border border-gray-200 transition-colors ` +
+        (disabled
+          ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+          : "bg-gray-900 text-white hover:bg-gray-800")
+      }
     >
       {children}
     </button>
